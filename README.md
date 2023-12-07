@@ -3,7 +3,7 @@
 
  My own liveroom design for streaming Euro Truck Simulator 2 on bilibili. Can be used to display truck status to visitors.
 
- ![](https://raw.githubusercontent.com/izwb003/ets2-obslive/dashboard.jpg)
+ ![](https://raw.githubusercontent.com/izwb003/ets2-obslive/main/dashboard.jpg)
 
  ## 使用说明
  这一背景是作为网页提供的，可用作[Funbit](https://github.com/Funbit)的[ets2-telemetry-server](https://github.com/Funbit/ets2-telemetry-server)的一个皮肤。故此，您需要安装此服务器工具。
