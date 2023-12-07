@@ -1,0 +1,45 @@
+<!--
+<messagebox-leave.html> - Euro Truck Simulator 2 online streaming liveroom design.
+Written in 2023 by Steven Song izwb003@gmail.com
+To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.
+You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>MESSAGE</title>
+    </head>
+    <style>
+        @font-face {
+            font-family: Dianzhen;
+            src: url(fenghuangdianzhenti.ttf);
+        }
+    </style>
+    <body style="background-color: rgba(0,0,255,0);">
+        <div style="width: 860px; height: 390px; position: relative;">
+            <div id="background-shadow" style="background-color: black; position: absolute; left: 20px; top: 20px; width: 840px; height: 370px; z-index: 0;"></div>
+            <div id="main-window" style="background-color: DarkBlue; position: absolute; width: 840px; height: 370px; z-index: 1;">
+                <div id="title-bar" style="background-color: grey; width: 100%; height: 20px; font-family: 'Dianzhen'; text-align: center; color: white;">
+                    <p style="font-size: 20px; margin-top: 0px; margin-bottom: 0px;">[Message]</p>
+                </div>
+                <div id="info" style="width: 100%; height: 300px; font-family: 'Dianzhen'; text-align: center; color: white;">
+                    <div id="info-message" contenteditable="true" style="width: 100%; margin-top: 50px; margin-bottom: 50px; font-size: 50px;">
+                        <p>主播当前遇事暂离</p>
+                        <p>直播暂停，稍后继续</p>
+                    </div>
+                    <div id="info-buttons" style="width: 100%; font-size: 50px;">
+                        <div id="info-button-ok" style="width: 50%; float: left;">
+                            <p style="margin-top: 0px; margin-bottom: 0px;">[OK]</p>
+                        </div>
+                        <div id="info-button-cancel" style="width: 50%; float: right;">
+                            <p style="margin-top: 0px; margin-bottom: 0px;">[Cancel]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

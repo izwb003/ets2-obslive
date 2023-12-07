@@ -1,0 +1,37 @@
+{
+	"folders": [],
+	"settings": {
+		"psi-header.config": {
+			"forceToTop": true,
+			"blankLinesAfter": 2,
+			"spacesBetweenYears": false,
+			"license": "CC0-1.0",
+			"author": "Steven Song",
+			"initials": "izwb003",
+			"authorEmail": "izwb003@gmail.com",
+			"creationDateZero": "asIs",
+		},
+		"psi-header.changes-tracking": {
+			"isActive": false
+		},
+		"psi-header.templates": [
+			{
+				"language": "*",
+				"template": [
+					"<<<filename>>> - Euro Truck Simulator 2 online streaming liveroom design.",
+					"Written in <<year>> by <<author>> <<authoremail>>",
+					"To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.",
+					"You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>."
+				]
+			},
+		],
+		"psi-header.license-text": [
+			"This will never show because it is only relevant if",
+			"psi-header.config.license equals Custom"
+		],
+		"psi-header.license-reference": {
+			"uri": "path/to/license.file",
+			"uriIsLocalFile": true
+		}
+	}
+}

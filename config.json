@@ -1,0 +1,28 @@
+{
+    "comments": [
+        "==============================",
+        "     SKIN CONFIGURATION       ",
+        "==============================",
+
+        "Required properties:",
+
+        "           name: name of the skin (directory name: /skins/name)",
+        "          title: human readable skin title",
+        "         author: author name",
+        "          width: width of the skin in pixels (same as defined in the CSS)",
+        "         height: height of the skin in pixels (same as defined in the CSS)",
+        "<config.json> - Euro Truck Simulator 2 online streaming liveroom design.",
+		"Written in 2023 by Steven Song izwb003@gmail.com",
+		"To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.",
+		"You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>."
+    ],
+
+    "config": {
+        "name": "obslive",
+        "title": "Dashboard Skin for OBS Streaming",
+        "author": "izwb003",        
+        "width": 1920,
+        "height": 1080
+    }    
+
+}

@@ -1,0 +1,185 @@
+﻿<!--
+<dashboard.html> - Euro Truck Simulator 2 online streaming liveroom design.
+Written in 2023 by Steven Song izwb003@gmail.com
+To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.
+You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+
+
+<div class="dashboard game-connected" id="dashboard-main">
+    <div id="title">
+        <p style="margin-top: 0px; margin-bottom: 0px;">====================================================================================[Euro Truck Simulator 2]==============================================================================[-][X]</p>
+        <hr style="margin-top: -5px; margin-bottom: 0px;" />
+    </div>
+    <div id="video-area">
+        <div id="obs-video">
+            <p>播出内容调试中，敬请稍候……</p>
+            <p>Debugging broadcast content, please wait...</p>
+        </div>
+        <div id="right-side-info">
+            <div id="right-side-time">
+                <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">==========[Time Status]==========</p>
+                <div class="time-info">
+                    <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">北京时间</p>
+                    <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">Beijing(UTC+8) Real Time</p>
+                    <p id="real-time" style="font-family: 'Digital7'; font-size: 60px; margin-top: 0px; margin-bottom: 0px;"></p>
+                </div>
+                <div class="time-info">
+                    <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">游戏内时间</p>
+                    <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">In-Game Time</p>
+                    <p class="game-timeModified" style="font-family: 'Digital7'; font-size: 60px; margin-top: 0px; margin-bottom: 0px;"></p>
+                </div>
+            </div>
+            <hr style="margin-top: 0px; margin-bottom: 0px;" />
+            <div id="right-side-drive-info">
+                <p style="margin-top: 0px; margin-bottom: 0px;">===========[Dashboard]===========</p>
+                <div id="right-side-drive-info-up">
+                    <div id="right-side-current-speed">
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">当前时速</p>
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">Current Speed</p>
+                        <p class="truck-speed" style="font-family: 'Digital7'; font-size: 60px; margin-top: 0px; margin-bottom: 0px;"></p>
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">km/h</p>
+                    </div>
+                    <div id="right-side-current-rpm">
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">当前发动机转速</p>
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">Current Rpm</p>
+                        <p class="truck-engineRpm" style="font-family: 'Digital7'; font-size: 60px; margin-top: 0px; margin-bottom: 0px;"></p>
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">r/min</p>
+                    </div>
+                </div>
+                <div id="right-side-drive-info-down">
+                    <div id="right-side-current-gear">
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">当前档位</p>
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">Current Gear</p>
+                        <p class="truck-gearModified" style="font-family: 'Digital7'; font-size: 60px; margin-top: 0px; margin-bottom: 0px;"></p>
+                    </div>
+                    <div id="right-side-current-fuel" style="transition: none;">
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">当前燃油</p>
+                        <p style="font-family: 'Dianzhen'; margin-top: 0px; margin-bottom: 0px;">Current Fuel</p>
+                        <p class="truck-fuelpercent" style="font-family: 'Digital7'; font-size: 60px; margin-top: 0px; margin-bottom: 0px;"></p>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin-top: 0px; margin-bottom: 0px;" />
+            <div id="obs-blivechat">
+                <p style="margin-top: 0px; margin-bottom: 0px;">============[Message]============</p>
+            </div>
+        </div>
+    </div>
+    <div id="info-area">
+        <div id="info-area-left">
+            <p style="margin-top: 0px; margin-bottom: 0px; text-align: center;">====================[Navigator]====================</p>
+            <div id="navigator">
+                <div id="navigator-speedLimit">
+                    <p style="margin-top: 0px; margin-bottom: 0px;">当前路段限速</p>
+                    <p style="margin-top: 0px; margin-bottom: 0px;">Speed Limit</p>
+                    <p style="margin-top: 0px; margin-bottom: 0px; font-size: 50px; color: red;">[<span class="navigation-speedLimit" style="font-family: 'Digital7'; color: white;"></span>]</p>
+                    <p style="margin-top: 0px; margin-bottom: 0px;">km/h</p>
+                </div>
+                <div class="navigator-info" id="navigator-info-no-destination" style="display: none;">
+                    <p>当前没有目的地</p>
+                    <p>There is currently no destination</p>
+                </div>
+                <div class="navigator-info" id="navigator-info-page" style="display: none;">
+                    <p>剩余里程/Estimated distance:<span class="navigation-estimatedDistanceModified"></span>km</p>
+                    <p style="margin-bottom: 0px;">剩余时间/Estimated time:</p>
+                    <p style="margin-top: 0px;"><span class="navigation-estimatedTimeDay"></span>天<span class="navigation-estimatedTimeHour"></span>小时<span class="navigation-estimatedTimeMinute"></span>分钟</p>
+                </div>
+                <div class="navigator-info" id="navigator-info-status">
+                    <div id="navigator-info-status-direction">
+                        <p style="margin-top: 0px; margin-bottom: 0px;">当前行车方向</p>
+                        <p style="margin-top: 0px; margin-bottom: 0px;">Direction</p>
+                        <div id="navigator-info-status-direction-meter" class="truck-placement-heading" data-type="meter" data-min="0" data-max="1" data-min-angle="0" data-max-angle="-360">
+                            <p style="margin-top: 0px; margin-bottom: 0px;">↑</p>
+                        </div>
+                        <p class="truck-placement-headingName" style="width: 40px; margin-bottom: 10px; position: absolute; left: 35%; bottom: 0px;"></p>
+                    </div>
+                    <div id="navigator-info-status-rest">
+                        <p style="margin-top: 0px; margin-bottom: 0px;">距下一次休息</p>
+                        <p style="margin-top: 0px; margin-bottom: 0px;">Next rest time in</p>
+                        <p><span class="game-nextRestStopTimeDay"></span>天<span class="game-nextRestStopTimeHour"></span>小时<span class="game-nextRestStopTimeMinute"></span>分钟</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="info-area-center">
+            <div id="info-area-lights">
+                <table id="info-area-lightsTable" align="center">
+                    <tr>
+                        <td class="truck-retarderBrakeOn" style="width: 60px;"><img src="skins/obslive/images/retarder.png" style="height: 30px; margin-top: 5px;"></img><span class="truck-retarderBrake" style="color: #ED910C; font-size: 20px;"></span></td>
+                        <td class="truck-lightsParkingOn"><img src="skins/obslive/images/parking.png" style="height: 30px; margin-top: 10px;"></img></td>
+                        <td class="truck-parkBrakeOn"><img src="skins/obslive/images/park.png" style="height: 30px; margin-top: 10px;"></img></td>
+                        <td class="truck-blinkerLeftOn" id="info-area-lightsTable-turnLeft"><==</td>
+                        <td>[<span class="truck-make"></span> <span class="truck-model"></span>]</td>
+                        <td class="truck-blinkerRightOn" id="info-area-lightsTable-turnRight">==></td>
+                        <td class="truck-lightsBeamLowOn"><img src="skins/obslive/images/beamlow.png" style="height: 30px; margin-top: 10px;"></img></td>
+                        <td class="truck-lightsBeamHighOn"><img src="skins/obslive/images/beamhigh.png" style="height: 30px; margin-top: 10px;"></img></td>
+                        <td class="truck-cruiseControlOn" style="width: 60px;"><img src="skins/obslive/images/cruise.png" style="height: 30px; margin-top: 5px;"></img><span class="truck-cruiseControlSpeed" style="color: #09890F; font-size: 20px;"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="info-area-bottom">
+                <div id="info-area-messages">
+                    <div id="info-area-messages-page1" style="display: block;">
+                        <p style="margin-top: 0px; margin-bottom: 0px;">水温/Water Temp</p>
+                        <p id="waterTemp" style="margin-top: 0px; margin-bottom: 0px; color: white">[<span id="waterTempBar">====================</span>]<span class="truck-waterTemperature"></span><span style="font-size: 10px;">℃</span></p>
+                        <p style="margin-top: 0px; margin-bottom: 0px;">供电电压/Power Voltage</p>
+                        <p id="voltage" style="margin-top: 0px; margin-bottom: 0px; color: white">[<span id="voltageBar">====================</span>]<span class="truck-batteryVoltage"></span>V</p>
+                    </div>
+                    <div id="info-area-messages-page2" style="display: none">
+                        <p style="margin-top: 0px; margin-bottom: 0px;">油温/Oil temp</p>
+                        <p id="oilTemp" style="margin-top: 0px; margin-bottom: 0px; color: white">[<span id="oilTempBar">====================</span>]<span class="truck-oilTemperature"></span>℃</p>
+                        <p style="margin-top: 0px; margin-bottom: 0px;">油压/Oil pressure</p>
+                        <p id="oilPressure" style="margin-top: 0px; margin-bottom: 0px; color: white">[<span id="oilPressureBar">====================</span>]<span class="truck-oilPressure"></span><span style="font-size: 14px;">psi</span></p>
+                    </div>
+                </div>
+                <div id="info-area-odometer">
+                    <p class="truck-odometer" style="font-family: 'Digital7'; font-size: 50px; margin-top: 5px; margin-bottom: 5px;"></p>
+                    <p style="font-size: 20px; margin-top: 5px; margin-bottom: 5px;">车辆总里程(km)</p>
+                </div>
+                <div id="info-area-status" style="font-size: 15px;">
+                    <p style="font-size: 20px; margin-top: 5px; margin-bottom: 0px;">车辆损伤</p>
+                    <table align="center" style="width: 100%; text-align: left;">
+                        <tr>
+                            <td>发动机:<span class="truck-wearEngineModified"></span>%</td>
+                            <td>变速箱:<span class="truck-wearTransmissionModified"></span>%</td>
+                        </tr>
+                        <tr>
+                            <td>驾驶舱:<span class="truck-wearCabinModified"></span>%</td>
+                            <td>底盘:<span class="truck-wearChassisModified"></span>%</td>
+                        </tr>
+                        <tr>
+                            <td>轮胎:<span class="truck-wearWheelsModified"></span>%</td>
+                            <td id="trailerWearFlag">挂车:<span class="trailer-wearModified"></span>%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="info-area-right">
+            <p style="margin-top: 0px; margin-bottom: 0px; text-align: center;">===================[Job Status]===================</p>
+            <div id="info-area-right-no-job" style="text-align: center; display: block;">
+                <p>当前没有载货任务</p>
+                <p>There is currently no cargo carrying task</p>
+            </div>
+            <div id="info-area-right-page-1" style="display: none;">
+                <p style="margin-top: 0px;">当前货物/Goods in transit:<span class="trailer-name"></span></p>
+                <p>货物重量/Goods weight:<span class="trailer-mass"></span></p>
+                <p style="margin-bottom: 0px;">预计收入/Estimated revenue:<span class="job-income"></span>€</p>
+            </div>
+            <div id="info-area-right-page-2" style="display: none;">
+                <p style="margin-top: 0px;">出发城市/Departure City:<span class="job-sourceCity"></span>(<span class="job-sourceCompany"></span>)</p>
+                <p>到达城市/Destination City:<span class="job-destinationCity"></span>(<span class="job-destinationCompany"></span>)</p>
+                <p style="margin-bottom: 0px;">截止时间/Deadline:<span class="job-remainingTimeDay"></span>天<span class="job-remainingTimeHour"></span>小时<span class="job-remainingTimeMinute"></span>分钟</p>
+            </div>
+        </div>
+    </div>
+    <div id="message-bottom">
+        <div id="message-left">
+            <p id="messages" style="margin-top: 0px; margin-bottom: 0px;"></p>
+        </div>
+        <div id="message-right">
+            <p style="margin-top: 0px; margin-bottom: 0px; color: green;">[ON AIR]</p>
+        </div>
+    </div>
+</div>
